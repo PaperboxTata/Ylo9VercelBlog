@@ -1,0 +1,31 @@
+{
+  "headers": [
+    {
+      "source": "/bilibili/image/:path*",
+      "headers": [
+        {
+          "key": "referer",
+          "value": "https://www.bilibili.com/"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/bilibili/like",
+      "destination": "/api/bilibili/like"
+    },
+    {
+      "source": "/bilibili/image/:path*",
+      "destination": "/api/bilibili/image/:path*"
+    },
+    {
+      "source": "/music163/history",
+      "destination": "/api/music163/history"
+    },
+    {
+      "source": "/notion/page/:id*",
+      "destination": "/api/notion/page/:id*"
+    }
+  ]
+}
