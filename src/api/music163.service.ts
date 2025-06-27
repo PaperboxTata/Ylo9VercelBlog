@@ -8,7 +8,7 @@ export const Music163Service = {
     },
 }
 export interface GetMusic163HistoryOutput {
-    // allData: AllDatum[];
+    // allData: Data[];
     weekData: Data[];
     code: number;
 }

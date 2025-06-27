@@ -51,7 +51,7 @@ export function getParams(uid) {
     uid: uid,
     type: "1",
     limit: "100",
-    offset: "0",
+    offset: "1",
     total: "true",
     csrf_token: ""
   });

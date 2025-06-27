@@ -2,30 +2,40 @@
 import { Music163Service } from '@/api';
 import { onMounted, ref } from 'vue';
 import { PlayCircleOutlined } from '@ant-design/icons-vue';
+import APlayer from "../APlayer.vue"
 type MusicType = {
     name: string,
-    id: number,
     artist: string,
+    url: string,
+    cover: string,
+    id: number
 };
+const switchMusicIndex = ref<number>()
+const switchMusic = (id: number) => {
+    switchMusicIndex.value = data.value.map(x => x.id).indexOf(id)
+}
 const data = ref<MusicType[]>([])
 onMounted(async () => {
     const respone = await Music163Service.getMusic163History()
-    data.value = respone.weekData.map(x => {
+    data.value = respone.weekData.filter(x => x.song.privilege.fee == 0).map(x => {
         return {
             name: x.song.name,
-            id: x.song.id,
             artist: x.song.ar.map(x => x.name).join('/'),
+            id: x.song.id,
+            url: "https://music.163.com/song/media/outer/url?id=" + x.song.id + ".mp3",
+            cover: x.song.al.picUrl
         }
     })
 })
 </script>
 <template>
+    <APlayer :audioList="data" :switchMusicIndex="switchMusicIndex" v-if="data.length > 0" />
     <div class="page-content-item">
         <div class="page-content-title">🎧️</div>
         <div style="max-height: 125px;overflow-y: scroll;">
             <a-row :gutter="[8, 2]">
                 <a-col :span="12" v-for="item in data">
-                    <a-row style="cursor: pointer;">
+                    <a-row style="cursor: pointer;" @click="switchMusic(item.id)">
                         <a-col :span="2">
                             <PlayCircleOutlined />
                         </a-col>

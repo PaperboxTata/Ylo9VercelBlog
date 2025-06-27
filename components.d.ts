@@ -14,6 +14,7 @@ declare module 'vue' {
     AFlex: typeof import('ant-design-vue/es')['Flex']
     AImage: typeof import('ant-design-vue/es')['Image']
     ALayout: typeof import('ant-design-vue/es')['Layout']
+    APlayer: typeof import('./src/components/APlayer.vue')['default']
     ARow: typeof import('ant-design-vue/es')['Row']
     ASpace: typeof import('ant-design-vue/es')['Space']
     ASpin: typeof import('ant-design-vue/es')['Spin']
