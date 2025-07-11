@@ -1,12 +1,6 @@
 import { http } from "./http"
 export const NotionService = {
     /**
-     * 获取notion数据库
-     */
-    getNotionDatabase: async (): Promise<any> => {
-        return await http.get<any, any>(`notion/databases/${import.meta.env.VITE_NOTION_DATABASE_ID}`)
-    },
-    /**
      * 获取notionPage
      * @param {string} pageId
      * @returns {GetNotionPageOutput}

@@ -67,7 +67,7 @@ const toPage = (id: string) => {
     <div v-else>
         <a-flex vertical justify="space-between" class="page-content-item" v-if="dataList.length > 0">
             <a-row :gutter="[20, 20]" style="padding: 20px;">
-                <a-col :lg="{ span: 8 }" :xs="{ span: 12 }" v-for="(item, index) in dataList">
+                <a-col :lg="{ span: 8 }" :xs="{ span: 24 }" v-for="(item, index) in dataList">
                     <a-card size="small" hoverable style="width: 100%" @click="toPage(item.page_id)">
                         <template #cover>
                             <a-image :preview="false" alt="cover" :src="item.cover_url"
@@ -92,7 +92,7 @@ const toPage = (id: string) => {
                         <div class="tags-area" v-if="item.tags.length > 0">
                             <a-tag v-for="(t, i) in item.tags" :bordered="false" :color="tagColorMap[t]">{{ t }}</a-tag>
                         </div>
-                        <div v-else>
+                        <div class="tags-area" v-else>
                             <a-tag>无标签</a-tag>
                         </div>
                     </a-card>
@@ -130,5 +130,6 @@ const toPage = (id: string) => {
 .tags-area {
     display: flex;
     flex-wrap: wrap;
+    font-size: 10px;
 }
 </style>

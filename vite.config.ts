@@ -7,6 +7,8 @@ import { resolve } from 'path';
 
 export default defineConfig(() => {
   return {
+    base: '/',
+    assetsInclude: ['**/*.html'],
     plugins: [
       vue(),
       Components({

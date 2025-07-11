@@ -12,7 +12,7 @@ onMounted(async () => {
                 <a-col :span="2"></a-col>
                 <a-col :lg="{ span: 12 }" :xs="{ span: 24 }" style="display: flex;flex-direction: column;">
                     <a-flex gap="middle" vertical>
-                        <a-image width="175px" :preview="false" src="../../../public/avatar.jpg"
+                        <a-image width="175px" :preview="false" src="/avatar.jpg"
                             style="border-radius: 100%;" />
                         <div style="font-size:xx-large;font-weight:400;">Hi👋~欢迎~</div>
                         <div style="font-size:xx-large;font-weight:300;">这里是Ylo9的博客~🍀</div>

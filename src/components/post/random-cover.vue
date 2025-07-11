@@ -16,9 +16,9 @@ const shuffleArray = <T>(array: T[]): T[] => {
 
 // 获取随机文件
 const getRandomFiles = (count: number = 4) => {
-    const modules = import.meta.glob('/public/random_image/*.{jpg,png,webp}')
+    const modules = import.meta.glob('/random_image/*.{jpg,png,webp}')
     const allPossibleFiles = Object.keys(modules).map(path =>
-        path.replace('/public/random_image/', '')
+        path.replace('/random_image/', '')
     )
     return shuffleArray(allPossibleFiles).slice(0, count)
 }
@@ -33,7 +33,7 @@ onMounted(() => {
             <a-col span="8">
             </a-col>
             <a-col span="4">
-                <a-image class="image" :preview="false" :src="'/public/random_image/' + randomFiles[0]"></a-image>
+                <a-image class="image" :preview="false" :src="'/random_image/' + randomFiles[0]"></a-image>
             </a-col>
             <a-col span="8">
             </a-col>
@@ -51,19 +51,19 @@ onMounted(() => {
 
         <a-row justify="center" :gutter="[8, 8]">
             <a-col span="4">
-                <a-image class="image" :preview="false" :src="'/public/random_image/' + randomFiles[1]"></a-image>
+                <a-image class="image" :preview="false" :src="'/random_image/' + randomFiles[1]"></a-image>
             </a-col>
             <a-col span="4" class="center">
                 <ArrowLeftOutlined />
             </a-col>
             <a-col span="4">
-                <a-image class="image" :preview="false" src="/public/favicon.ico"></a-image>
+                <a-image class="image" :preview="false" src="/favicon.ico"></a-image>
             </a-col>
             <a-col span="4" class="center">
                 <ArrowRightOutlined />
             </a-col>
             <a-col span="4">
-                <a-image class="image" :preview="false" :src="'/public/random_image/' + randomFiles[2]"></a-image>
+                <a-image class="image" :preview="false" :src="'/random_image/' + randomFiles[2]"></a-image>
             </a-col>
         </a-row>
 
@@ -81,7 +81,7 @@ onMounted(() => {
             <a-col span="8">
             </a-col>
             <a-col span="4">
-                <a-image class="image" :preview="false" :src="'/public/random_image/' + randomFiles[3]"></a-image>
+                <a-image class="image" :preview="false" :src="'/random_image/' + randomFiles[3]"></a-image>
             </a-col>
             <a-col span="8">
             </a-col>
