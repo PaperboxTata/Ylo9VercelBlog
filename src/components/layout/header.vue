@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { AnchorLinkItemProps } from "ant-design-vue/es/anchor"
 import DynamicIcon from "../dynamic-icon.vue"
-import { GithubOutlined, TwitterOutlined } from '@ant-design/icons-vue';
-import { inject, Ref, ref, watch } from "vue"
+import { GithubOutlined } from '@ant-design/icons-vue';
+import { ref } from "vue"
 import { useRouter } from "vue-router";
-const router=useRouter()
+const router = useRouter()
 const to = ref()
 const getCurrentAnchor = () => {
     if (to.value) return to.value
-    return window.location.pathname
+    const parts = window.location.pathname.split('/').filter(Boolean)
+    return parts.length > 0 ? `/${parts[0]}` : '/'
 }
 const anchorItems = ref<AnchorLinkItemProps[]>([
     { key: '/', href: '/', title: '首页' },
@@ -34,18 +35,13 @@ const getCurrentIcon = (title: string) => {
 const toUrl = (url: string) => {
     window.open(url);
 }
-
-const headerScrollTarget = inject('headerScrollTarget') as Ref<boolean, boolean>;
-watch(headerScrollTarget, () => {
-
-})
 </script>
 <template>
     <a-row style="width: 100%">
-        <a-col :span="headerScrollTarget ? 4 : 0"></a-col>
-        <a-col :span="headerScrollTarget ? 16 : 24">
+        <a-col :span="4"></a-col>
+        <a-col :span="16">
             <a-anchor direction="horizontal" @click="handleAnchorClick" :getCurrentAnchor="getCurrentAnchor"
-                :items="getAnchorItems()" wrapperClass="anchor page-header">
+                :items="getAnchorItems()" wrapperClass="anchor">
                 <template #customTitle="{ key, title }">
                     <a-space v-if="key[0] == '/'">
                         <span>
@@ -56,13 +52,10 @@ watch(headerScrollTarget, () => {
                 </template>
             </a-anchor>
         </a-col>
-        <a-col :span="headerScrollTarget ? 3 : 0">
+        <a-col :span="3">
             <a-row :gutter="8" justify="end" align="middle" style="height: 100%;">
                 <a-col>
                     <GithubOutlined style="font-size: 20px;" @click="toUrl(`https://github.com/PaperboxTata`)" />
-                </a-col>
-                <a-col>
-                    <TwitterOutlined style="font-size: 20px;" />
                 </a-col>
             </a-row>
         </a-col>
@@ -72,12 +65,9 @@ watch(headerScrollTarget, () => {
 .anchor {
     display: flex;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
     border-bottom-width: 0px !important;
 
     .ant-anchor {
-        /* margin: 7px 0 2px 0; */
         padding: 0 25px 0 25px;
         background-color: rgba(255, 255, 255, 0.4);
         border-radius: 50px;

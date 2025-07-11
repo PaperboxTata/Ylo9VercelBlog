@@ -12,8 +12,15 @@ export const NotionService = {
      * @returns {GetNotionPageOutput}
      */
     getNotionPage: async (pageId: string): Promise<GetNotionPageOutput> => {
-        return await http.post<void, GetNotionPageOutput>(`/notion/page/${pageId}`)
-    }
+        return await http.post<void, GetNotionPageOutput>(`/api/notion/page/${pageId}`)
+    },
+    /**
+     * 获取预存notionPage数据
+     * @returns {GetNotionPageDataOutput[]}
+     */
+    getNotionPageData: async (): Promise<GetNotionPageDataOutput[]> => {
+        return await http.get<void, GetNotionPageDataOutput[]>(`/api/notion/jsonData`)
+    },
 }
 export interface GetNotionPageInput {
     page: Page;
@@ -35,4 +42,13 @@ export interface GetNotionPageOutput {
 }
 export interface RecordMap {
     block: any;
+}
+
+export interface GetNotionPageDataOutput {
+    page_id: string;
+    title: string;
+    tags: string[];
+    excerpt: string;
+    cover_url: null | string;
+    last_edited_time: Date;
 }

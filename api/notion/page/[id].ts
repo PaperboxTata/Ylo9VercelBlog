@@ -15,17 +15,10 @@ export default async (req: VercelRequest, res: VercelResponse) => {
                 },
                 verticalColumns: false,
                 omitExistingRecordVersions: []
-            },
-            {
-                headers: {
-                    'Authorization': `Bearer ${process.env.NOTION_TOKEN}`,
-                    'Notion-Version': process.env.NOTION_VERSION
-                },
             }
         )
         res.status(200).json(response.data);
     } catch (error) {
-        console.error("请求失败:", error);
-        res.status(500).json({ error: "请求Notion API 失败" });
+        res.status(200).json({  });
     }
 };
