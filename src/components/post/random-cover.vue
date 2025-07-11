@@ -13,14 +13,34 @@ const shuffleArray = <T>(array: T[]): T[] => {
     }
     return shuffled
 }
-
+const list = ['quill.png',
+    'r_alchent.png',
+    'r_alchman.png',
+    'r_alchmult.png',
+    'r_artifice.png',
+    'r_aspects.png',
+    'r_aurapreserve.png',
+    'r_crucible.png',
+    'r_eldritch.png',
+    'r_eldritchmajor.png',
+    'r_eldritchminor.png',
+    'r_enchant.png',
+    'r_golemancy.png',
+    'r_inf_enchant.png',
+    'r_inf_heart.png',
+    'r_nodes_2.png',
+    'r_nodes.png',
+    'r_nodetap1.png',
+    'r_nodetap2.png',
+    'r_outer.png',
+    'r_researcher1.png',
+    'r_researcher2.png',
+    'r_runicupg.png',
+    'r_thaumaturgy.png',
+    'r_warp.png']
 // 获取随机文件
 const getRandomFiles = (count: number = 4) => {
-    const modules = import.meta.glob('/random_image/*.{jpg,png,webp}')
-    const allPossibleFiles = Object.keys(modules).map(path =>
-        path.replace('/random_image/', '')
-    )
-    return shuffleArray(allPossibleFiles).slice(0, count)
+    return shuffleArray(list).slice(0, count)
 }
 
 onMounted(() => {

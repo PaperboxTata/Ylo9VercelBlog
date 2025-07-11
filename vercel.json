@@ -1,2 +1,12 @@
 {
+    "rewrites": [
+        {
+            "source": "/post/(.*)",
+            "destination": "/"
+        },
+        {
+            "source": "/record/(.*)",
+            "destination": "/"
+        }
+    ]
 }
