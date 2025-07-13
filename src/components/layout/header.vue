@@ -37,7 +37,9 @@ const toUrl = (url: string) => {
 }
 </script>
 <template>
-    <a-row style="width: 100%">
+    <a-row style="width: 100%;">
+        <a-col :span="24" class="header-background">
+        </a-col>
         <a-col :span="4"></a-col>
         <a-col :span="16">
             <a-anchor direction="horizontal" @click="handleAnchorClick" :getCurrentAnchor="getCurrentAnchor"
@@ -76,5 +78,14 @@ const toUrl = (url: string) => {
 
 .anchor::before {
     border-bottom: none !important;
+}
+
+.header-background {
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    top: 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 </style>

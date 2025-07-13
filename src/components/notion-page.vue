@@ -10,9 +10,11 @@ const props = defineProps({
         required: true
     },
 })
+const emit = defineEmits(['loadFinished'])
 const blockMap = ref(undefined)
 onMounted(async () => {
     blockMap.value = await NotionService.getNotionPage(props.id);
+    emit("loadFinished")
 })
 </script>
 <template>

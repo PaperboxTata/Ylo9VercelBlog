@@ -57,7 +57,7 @@ body {
 
     .page-content-item {
         padding: 8px;
-        height: calc(100vh - 55px);
+        min-height: calc(100vh - 55px);
 
         .page-content-title {
             font-size: 25px;

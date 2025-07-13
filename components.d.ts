@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AAlert: typeof import('ant-design-vue/es')['Alert']
     AAnchor: typeof import('ant-design-vue/es')['Anchor']
     ACard: typeof import('ant-design-vue/es')['Card']
     ACardMeta: typeof import('ant-design-vue/es')['CardMeta']
@@ -20,6 +21,7 @@ declare module 'vue' {
     ASpace: typeof import('ant-design-vue/es')['Space']
     ASpin: typeof import('ant-design-vue/es')['Spin']
     ATag: typeof import('ant-design-vue/es')['Tag']
+    Comments: typeof import('./src/components/comments.vue')['default']
     CusSpin: typeof import('./src/components/cus-spin.vue')['default']
     DefaultLayout: typeof import('./src/components/layout/default-layout.vue')['default']
     DynamicIcon: typeof import('./src/components/dynamic-icon.vue')['default']

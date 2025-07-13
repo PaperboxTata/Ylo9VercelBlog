@@ -28,7 +28,6 @@ const onPageNumChange = (page: number) => {
 const loading = ref(true)
 const loadData = async () => {
     loading.value = true
-
     allData.value = await notionStore.getNotionPageData()
     onPageNumChange(1)
     coverErrorList.value = Array(allData.value.length).fill(false)

@@ -2,6 +2,7 @@
 import { onMounted } from 'vue';
 import { DownOutlined } from '@ant-design/icons-vue';
 onMounted(async () => {
+    
 })
 </script>
 <template>
@@ -26,6 +27,7 @@ onMounted(async () => {
                 <DownOutlined/>
             </div>
         </a-flex>
+        
     </div>
 </template>
 <style>
