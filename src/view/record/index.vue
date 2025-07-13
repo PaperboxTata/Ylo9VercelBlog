@@ -44,12 +44,12 @@ onMounted(async () => {
             <a-row :gutter="[20, 20]" style="padding: 20px;">
                 <a-col :span="24">
                     <div style="display: flex;justify-content: center;">
-                        <a-alert type="info" show-icon>
+                        <a-alert type="info" show-icon closable>
                             <template #message>
                                 <div style="display: flex;flex-direction: column;font-size: small;">
-                                    <span>本页展示内容来自公开RSS源，所有权利归属原作者。</span>
-                                    <span>展示数据包含：文章标题、网站名称、更新时间</span>
-                                    <span>如为您造成不便请联系移除。</span>
+                                    <span>本页展示内容来自公开RSS源(dalao们的博客)，所有权利归属原作者。</span>
+                                    <span>展示数据包含：文章标题、网站名称、更新时间等...</span>
+                                    <span>如为您造成不便可联系移除🙇。</span>
                                 </div>
                             </template>
                         </a-alert>
